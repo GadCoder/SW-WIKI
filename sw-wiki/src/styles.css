@@ -1,0 +1,16 @@
+.nav-bar{
+    border-bottom: 1px solid black;
+}
+
+.card{
+    border: 1px solid black;
+    height: 250px;
+    margin-top: 50px;
+}
+
+.page-bar{
+    border: 1px solid red;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
