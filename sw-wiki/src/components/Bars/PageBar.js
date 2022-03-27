@@ -1,39 +1,39 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Pagination, Row } from "react-bootstrap";
 
-function PageBar({ currentPage, updatePage }) {
+function PageBar({ currentPage, numberOfPages, updatePage }) {
+
+  const [pageNumber, setPageNumber] = useState(numberOfPages)
+
   function handlePageChange() {
-    return currentPage + 1 > 5 ? 5 : currentPage;
+    return currentPage + 1 > pageNumber-1 ? (numberOfPages/2 + 1) : currentPage;
   }
 
   const updateCurrentPage = (pageNumber) => {
     const pageToUpdate = currentPage + pageNumber;
-
-    if (pageToUpdate < 1 || pageToUpdate > 8) {
+    if (pageToUpdate < 1 || pageToUpdate > numberOfPages) {
       return;
     }
     updatePage(pageToUpdate);
   };
 
+  const createPaginationItems = () => {
+    for(let i = 0; i < numberOfPages; i++){
+      const index = i +1 ;
+      return (
+        <Pagination.Item onClick = {() => updatePage(index)}>{index} </Pagination.Item>
+      )
+    }
+  }
   return (
     <Row>
       <Pagination
         size={"lg"}
         className="d-flex justify-content-center page-bar"
       >
-        <Pagination.First onClick={() => updatePage(1)} />
-        <Pagination.Prev onClick={() => updateCurrentPage(-1)} />
-        <Pagination.Item onClick={() => updatePage(handlePageChange())}>
-          {handlePageChange()}
-        </Pagination.Item>
-        <Pagination.Item onClick={() => updatePage(handlePageChange() + 1)}>
-          {handlePageChange() + 1}
-        </Pagination.Item>
-        <Pagination.Ellipsis />
-        <Pagination.Item onClick={() => updatePage(7)}>{7}</Pagination.Item>
-        <Pagination.Item onClick={() => updatePage(8)}>{8}</Pagination.Item>
-        <Pagination.Next onClick={() => updateCurrentPage(1)} />
-        <Pagination.Last onClick={() => updatePage(8)} />
+      {[...Array(numberOfPages)].map((x,i) =>  
+        <Pagination.Item onClick = {() => updatePage(i+1)}>{i+1} </Pagination.Item>
+      )}
       </Pagination>
     </Row>
   );
