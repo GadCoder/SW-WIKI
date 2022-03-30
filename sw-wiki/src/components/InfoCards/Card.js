@@ -4,7 +4,7 @@ import { useState } from "react";
 function Card({ info, contentType }) {
   //const [name, height, mass, birth_year, homeworld, films] = info
 
-  const img_path = `./${contentType}/${info.name}.jpeg`;
+  const img_path = `./images/${contentType}/${info.name}.jpeg`;
   return (
     <Container className="card">
       <Row>
