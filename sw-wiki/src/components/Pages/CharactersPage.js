@@ -45,7 +45,7 @@ function CharactersPage(){
             numberOfPages={numberOfPages}>
         </NavigationBar>
         <CardsContainer currentPage={currentPage} contentType={"people"} />
-        <PageBar currentPage={currentPage} numberOfPages={numberOfPages} updatePage={updatePage}></PageBar>
+        <PageBar numberOfPages={numberOfPages} updatePage={updatePage}></PageBar>
       </Container>
     );
 
