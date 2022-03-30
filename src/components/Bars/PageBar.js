@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Pagination, Row } from "react-bootstrap";
 
 function PageBar({numberOfPages, updatePage }) {
