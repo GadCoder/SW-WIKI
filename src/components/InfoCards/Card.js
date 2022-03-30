@@ -8,7 +8,7 @@ function Card({ info, contentType }) {
   return (
     <Container className="card">
       <Row>
-        <h1 className="card-tittle">{name}</h1>
+        <h3 className="card-tittle">{name}</h3>
       </Row>
       <Row >
           <Col className="img-container">

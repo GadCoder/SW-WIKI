@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Container, Navbar, Form } from "react-bootstrap";
+import {Link} from "react-router-dom"
 import CardsContainer from "../InfoCards/CardsContainer";
 import {getNumberOfPages} from "../../api/swapi";
 import PageBar from "../Bars/PageBar";
@@ -33,7 +34,9 @@ function CharactersPage(){
       <Container>
         <Navbar className="nav-bar">
           <Container>
-            <Navbar.Brand href="#"> SW-Wiki</Navbar.Brand>
+            <Navbar.Brand>
+              <Link to="/" className="page-tittle">SW-Wiki</Link>
+            </Navbar.Brand>
             <Form>
               <Form.Check type="switch" id="theme-switch" label="Jedi" />
             </Form>

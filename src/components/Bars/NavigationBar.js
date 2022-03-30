@@ -3,7 +3,7 @@ import {Link} from "react-router-dom"
 
 function NavigationBar({ currentPage = 1, numberOfPages = 8 }) {
   return (
-    <Row>
+    <Row className="page-top-bar">
       <Col md={4}>
         <h3>
           Página: {currentPage}/{numberOfPages}
