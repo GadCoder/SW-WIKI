@@ -17,7 +17,6 @@ function CharactersPage(){
         getNumberOfPages("people").then( (info) => {
           if(pageNumberToSet){
             setNumberOfPages(info)
-            console.log("Number of pages: " + numberOfPages)
           }
         })
         return () => {
@@ -45,7 +44,7 @@ function CharactersPage(){
             numberOfPages={numberOfPages}>
         </NavigationBar>
         <CardsContainer currentPage={currentPage} contentType={"people"} />
-        <PageBar numberOfPages={numberOfPages} updatePage={updatePage}></PageBar>
+        <PageBar numberOfPages={numberOfPages} currentPage={currentPage} updatePage={updatePage}></PageBar>
       </Container>
     );
 

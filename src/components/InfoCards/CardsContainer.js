@@ -9,7 +9,6 @@ function CardsContainer({currentPage,contentType}) {
   const [charactersInfo, setCharactersInfo] = useState([]);
 
   useEffect(() => {
-    console.log(`"Updating page with index: "${currentPage}`)
     getDataAPI(contentType,currentPage).then((info) =>
     setCharactersInfo(info)
   );

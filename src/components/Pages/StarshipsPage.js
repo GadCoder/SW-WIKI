@@ -45,7 +45,7 @@ function StarshipsPage(){
             numberOfPages={numberOfPages}>
         </NavigationBar>
         <CardsContainer currentPage={currentPage} contentType={"starships"} />
-        <PageBar numberOfPages={numberOfPages} updatePage={updatePage}></PageBar>
+        <PageBar numberOfPages={numberOfPages} currentPage={currentPage} updatePage={updatePage}></PageBar>
       </Container>
     );
 

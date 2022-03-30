@@ -45,7 +45,7 @@ function PlanetsPage(){
             numberOfPages={numberOfPages}>
         </NavigationBar>
         <CardsContainer currentPage={currentPage} contentType={"planets"} />
-        <PageBar numberOfPages={numberOfPages} updatePage={updatePage}></PageBar>
+        <PageBar numberOfPages={numberOfPages} currentPage={currentPage} updatePage={updatePage}></PageBar>
       </Container>
     );
 
