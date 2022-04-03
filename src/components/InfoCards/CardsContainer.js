@@ -17,7 +17,7 @@ function CardsContainer({currentPage,contentType}) {
   return (
     <Row>
       {charactersInfo.map((character, id) => (
-        <Col md={4} key={id}>
+        <Col md={3} key={id}>
           <Card info={character} contentType={contentType}/>
         </Col>
       ))}

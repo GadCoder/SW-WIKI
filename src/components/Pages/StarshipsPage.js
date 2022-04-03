@@ -4,8 +4,8 @@ import CardsContainer from "../InfoCards/CardsContainer";
 import {Link} from "react-router-dom"
 
 import { getNumberOfPages } from "../../api/swapi";
-import PageBar from "../Bars/PageBar";
-import NavigationBar from "../Bars/NavigationBar";
+import BottomBar from "../Bars/BottomBar";
+import TopBar from "../Bars/TopBar";
 
 function StarshipsPage() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -33,26 +33,16 @@ function StarshipsPage() {
 
   return (
     <Container>
-      <Navbar className="nav-bar">
-        <Container>
-          <Navbar.Brand>
-            <Link to="/" className="page-tittle">SW-Wiki</Link>
-          </Navbar.Brand>
-          <Form>
-            <Form.Check type="switch" id="theme-switch" label="Jedi" />
-          </Form>
-        </Container>
-      </Navbar>
-      <NavigationBar
+      <TopBar
         currentPage={currentPage}
         numberOfPages={numberOfPages}
-      ></NavigationBar>
+      ></TopBar>
       <CardsContainer currentPage={currentPage} contentType={"starships"} />
-      <PageBar
+      <BottomBar
         numberOfPages={numberOfPages}
         currentPage={currentPage}
         updatePage={updatePage}
-      ></PageBar>
+      ></BottomBar>
     </Container>
   );
 }

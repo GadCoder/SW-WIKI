@@ -3,8 +3,8 @@ import { Container, Navbar, Form } from "react-bootstrap";
 import {Link} from "react-router-dom"
 import CardsContainer from "../InfoCards/CardsContainer";
 import {getNumberOfPages} from "../../api/swapi";
-import PageBar from "../Bars/PageBar";
-import NavigationBar from "../Bars/NavigationBar";
+import BottomBar from "../Bars/BottomBar";
+import TopBar from "../Bars/TopBar";
 
 
 function CharactersPage(){
@@ -31,23 +31,13 @@ function CharactersPage(){
     };
   
     return (
-      <Container>
-        <Navbar className="nav-bar">
-          <Container>
-            <Navbar.Brand>
-              <Link to="/" className="page-tittle">SW-Wiki</Link>
-            </Navbar.Brand>
-            <Form>
-              <Form.Check type="switch" id="theme-switch" label="Jedi" />
-            </Form>
-          </Container>
-        </Navbar>
-        <NavigationBar
+      <Container fluid>
+        <TopBar
             currentPage={currentPage}
             numberOfPages={numberOfPages}>
-        </NavigationBar>
+        </TopBar>
         <CardsContainer currentPage={currentPage} contentType={"people"} />
-        <PageBar numberOfPages={numberOfPages} currentPage={currentPage} updatePage={updatePage}></PageBar>
+        <BottomBar numberOfPages={numberOfPages} currentPage={currentPage} updatePage={updatePage}></BottomBar>
       </Container>
     );
 

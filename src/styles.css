@@ -1,52 +1,72 @@
 /* Fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Caption&display=swap');
+
 @font-face {
     font-family: 'SWFont';
     src: url("./fonts/Starjedi.ttf");
 }
 
+
+/* Bars */
+
+.nav-link{
+    color: black;
+    font-family: 'PT Sans Caption', sans-serif;    
+}
+
+.nav-link:hover{
+    color: #1B9AFA !important;
+}
+/* TOP Bar*/
+
+.page-top-bar{
+    margin-top: 20px;
+    padding: 20px 30px;
+}
+
+.page-top-bar-count{
+    margin-right: 50px;
+    font-family: 'Maven Pro', sans-serif;
+}
+
 .page-tittle{
     font-family: SWFont !important;
     text-decoration: none;
-    font-size: 2em;
+    font-size: 2.5em;
     color: black;
-
+    margin-right: 50px;
 }
 
 .page-tittle:hover{
     color: #FFE81F
 }
 
-.nav-link{
-    color: black;
-    
+.page-theme-switch{
+    font-family: 'PT Sans Caption', sans-serif;
+    margin-left: 50px;
 }
 
+/* Bottom Bar */
 
-
-/* Bars */
-
-
-.nav-bar{
-    border-bottom: 1px solid black;
-}
-
-.page-top-bar{
-    margin-top: 20px;
-}
 .page-bottom-bar{
     margin-top: 20px;
     display: flex;
     justify-content: center;
 }
 
+
 /* Info Card */
 .card{
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     margin-top: 50px;
-    padding-bottom: 50px;
-
-
-
+    padding: 25px 0px;
+}
+.card-tittle{
+    text-align: center;
+    font-family: 'Maven Pro', sans-serif;
+    font-weight: 600;
 }
 
 .img{
@@ -59,6 +79,13 @@
     height: 350px;
 }
 
-.card-tittle{
-    text-align: center;
-}
+/* MOBILe */
+@media only screen and (max-width: 768px) {
+    .page-tittle{
+        font-size: 1.5em;
+    }
+    .page-theme-switch{
+        font-family: 'PT Sans Caption', sans-serif;
+        margin: 0px;
+    }
+  }

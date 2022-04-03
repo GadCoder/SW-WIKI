@@ -16,7 +16,7 @@ function PageBar({ numberOfPages, currentPage,  updatePage }) {
         </Pagination>
       </BrowserView>
       <MobileView>
-        <Pagination size={"lg"} className="page-bar">
+        <Pagination size={"lg"} className="page-bottom-bar">
           <Pagination.Prev onClick={() => currentPage - 1 < 1 ? null : updatePage(currentPage-1)} />
           <Pagination.Next onClick={() => currentPage + 1 > numberOfPages ? null : updatePage(currentPage+1)} />
         </Pagination>
