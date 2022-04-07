@@ -7,6 +7,8 @@ async function getDataAPI(content="people", page=1){
     const data = await response.json()
     return data.results
 }
+
+
 async function getNumberOfPages(content="people"){
     const url = `https://swapi.dev/api/${content}/`
     const response = await fetch(url,

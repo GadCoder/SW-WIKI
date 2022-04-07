@@ -1,17 +1,16 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import CharactersPage from "./components/Pages/CharactersPage";
-import PlanetsPage from "./components/Pages/PlanetsPage";
-import StarshipsPage from "./components/Pages/StarshipsPage";
+import MainPage from "./components/Pages/MainPage";
+
 
 function App() {
-  return (
+  return ( 
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<CharactersPage />}>
-          <Route index element={<CharactersPage />} />
-        </Route>
-        <Route path="starships" element={<StarshipsPage />} />
-        <Route path="planets" element={<PlanetsPage />} />
+        <Route path="/" element={<MainPage content="people" key={"people"} />}>
+          <Route index element={<MainPage content="people" key={"people"}/>} />
+        </Route> 
+        <Route path="starships" element={<MainPage content="starships" key={"starships"}/>} />
+        <Route path="planets" element={<MainPage content="planets" key={"planets"}/>} />
       </Routes>
     </BrowserRouter>
   );

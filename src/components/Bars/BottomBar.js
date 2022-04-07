@@ -9,7 +9,11 @@ function PageBar({ numberOfPages, currentPage,  updatePage }) {
       <BrowserView>
         <Pagination size={"lg"} className="page-bottom-bar">
           {[...Array(numberOfPages)].map((x, i) => (
-            <Pagination.Item onClick={() => updatePage(i + 1)} key={i}>
+            <Pagination.Item
+              key={i}
+              active={i+1 === currentPage}
+              onClick={() => updatePage(i + 1)}
+            >
               {i + 1}{" "}
             </Pagination.Item>
           ))}
