@@ -6,6 +6,7 @@
 @font-face {
     font-family: 'SWFont';
     src: url("./fonts/Starjedi.ttf");
+    font-display: swap;
 }
 
 
