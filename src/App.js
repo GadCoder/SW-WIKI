@@ -8,7 +8,8 @@ function App() {
       <Routes>
         <Route path="/" element={<MainPage content="people" key={"people"} />}>
           <Route index element={<MainPage content="people" key={"people"}/>} />
-        </Route> 
+        </Route>
+        <Route path="people" element={<MainPage content="people" key={"people"}/>} />
         <Route path="starships" element={<MainPage content="starships" key={"starships"}/>} />
         <Route path="planets" element={<MainPage content="planets" key={"planets"}/>} />
       </Routes>

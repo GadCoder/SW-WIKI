@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Nav,
   Navbar,
@@ -8,15 +9,28 @@ import {
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-function TopBar({theme, setTheme}) {
+function TopBar({theme, setTheme, searchButton, updateSearchTerm}) {
   
   const navBarTheme = theme === "jedi" ? "navbar-light bg-light" : "navbar-dark bg-dark"
+  const [searchField, setSearchField] = useState(" ")
 
+  const handleSearchButton = () => {
+    const searchStatus = searchField.length > 1 ? true : false
+    if(searchStatus){
+      console.log(searchStatus)
+      searchButton(searchStatus);
+      updateSearchTerm(searchField)
+
+    }else {
+      searchButton(false)
+    }
   
+    console.log(searchField)
+
+  }
 
   const handleThemeChange = () => {
     const themeChanged = theme === "jedi" ? "sith" : "jedi"
-    console.log("Currente theme: " + themeChanged)
     setTheme(themeChanged)
   };
 
@@ -26,7 +40,7 @@ function TopBar({theme, setTheme}) {
       <Container>
         <Navbar.Toggle aria-controls="responsive-navbar" />
         <Navbar.Brand>
-          <Link to="/" className={`page-tittle-${theme} page-tittle`}>
+          <Link to="/people" className={`page-tittle-${theme} page-tittle`}>
             SW-Wiki
           </Link>
         </Navbar.Brand>
@@ -37,12 +51,17 @@ function TopBar({theme, setTheme}) {
               placeholder="Ben Quadinaros"
               className="me-2"
               aria-label="Search"
+              value={searchField}
+              onChange={e => setSearchField(e.target.value)}
             />
-            <Button variant={`outline-${theme === "jedi" ? "primary" : "danger"}`}>Buscar</Button>
+            <Button
+              variant={`outline-${theme === "jedi" ? "primary" : "danger"}`}
+              onClick={handleSearchButton }
+            >Buscar</Button>
           </Form>
           <Nav className="ms-auto">
             <Nav.Item>
-              <Link to="/" className={`nav-link nav-link-${theme}`}>
+              <Link to="/people" className={`nav-link nav-link-${theme}`}>
                 Personajes
               </Link>
             </Nav.Item>

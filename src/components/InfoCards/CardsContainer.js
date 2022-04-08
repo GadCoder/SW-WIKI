@@ -3,7 +3,6 @@ import { Row, Col } from "react-bootstrap";
 import {getDataAPI} from "../../api/swapi";
 import Card from "./Card";
 
-
 function CardsContainer({currentPage,contentType}) {
   const [charactersInfo, setCharactersInfo] = useState([]);
 
@@ -17,7 +16,7 @@ function CardsContainer({currentPage,contentType}) {
     <Row>
       {charactersInfo.map((character, id) => (
         <Col md={3} key={id}>
-          <Card info={character} contentType={contentType}/>
+          <Card info={character.name} contentType={contentType}/>
         </Col>
       ))}
     </Row>
