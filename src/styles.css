@@ -9,12 +9,26 @@
     font-display: swap;
 }
 
+body {
+    padding: 0;
+    margin: 0;
+    }
+    
+    #root {
+    min-height: 100vh; 
+
+    }
 
 .main-container-sith{
     background-color: #212529;
+    overflow: auto;
+    height:100vh;
 }
+
 .main-container-jedi{
     background-color: #FFFFFF;
+    height:100vh;
+
 }
 /* Bars */
 

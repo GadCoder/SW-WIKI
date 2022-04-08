@@ -28,7 +28,6 @@ function MainPage({content="people"}){
       let pageNumberToSet = true;
       getListOfData(content).then( (info) => {
         if(pageNumberToSet){
-          console.log(Object.keys(info).length)
           setContentList(info)
         }
       })  

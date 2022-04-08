@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 function TopBar({theme, setTheme, searchButton, updateSearchTerm}) {
   
   const navBarTheme = theme === "jedi" ? "navbar-light bg-light" : "navbar-dark bg-dark"
-  const [searchField, setSearchField] = useState(" ")
+  const [searchField, setSearchField] = useState("")
 
   const handleSearchButton = () => {
     const searchStatus = searchField.length > 1 ? true : false
