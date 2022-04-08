@@ -4,7 +4,6 @@ import {getDataAPI} from "../../api/swapi";
 import Card from "./Card";
 
 
-
 function CardsContainer({currentPage,contentType}) {
   const [charactersInfo, setCharactersInfo] = useState([]);
 
@@ -12,7 +11,7 @@ function CardsContainer({currentPage,contentType}) {
     getDataAPI(contentType,currentPage).then((info) =>
     setCharactersInfo(info)
   );
-  }, [currentPage]);
+  }, [currentPage, contentType]);
 
   return (
     <Row>

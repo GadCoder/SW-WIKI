@@ -1,6 +1,5 @@
-import { useEffect, useRef, useState } from "react";
+import {  useRef, useState } from "react";
 import { Container} from "react-bootstrap";
-import {getNumberOfPages} from "../../api/swapi";
 import CardsContainer from "../InfoCards/CardsContainer";
 import BottomBar from "../Bars/BottomBar";
 import TopBar from "../Bars/TopBar";
@@ -8,36 +7,25 @@ import TopBar from "../Bars/TopBar";
 
 function CharactersPage({content="people"}){
     const [currentPage, setCurrentPage] = useState(1);
-    const [numberOfPages, setNumberOfPages] = useState(8)
+    const [pageTheme, setPageTheme] = useState("sith")
+
     const pageRef = useRef({});
     pageRef.current = currentPage;
-  
-    useEffect( () => {
-        let pageNumberToSet = true;
-        getNumberOfPages(content).then( (info) => {
-          if(pageNumberToSet){
-            setNumberOfPages(info)
-          }
-        })
-        return () => {
-            pageNumberToSet = false;
-        }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
-
-
+    
     const updatePage = (pageNumber) => {
       setCurrentPage(pageNumber);
     };
   
     return (
-      <Container fluid>
-        <TopBar
-            currentPage={currentPage}
-            numberOfPages={numberOfPages}>
-        </TopBar>
+      <Container fluid className={`main-container-${pageTheme ==="jedi" ? "jedi" : "sith" }`}>
+        <TopBar theme={pageTheme} setTheme={setPageTheme}/>
         <CardsContainer currentPage={currentPage} contentType={content} />
-        <BottomBar numberOfPages={numberOfPages} currentPage={currentPage} updatePage={updatePage}></BottomBar>
+        <BottomBar 
+          content={content} 
+          currentPage={currentPage}
+          updatePage={updatePage}
+          theme={pageTheme}
+         />
       </Container>
     );
 

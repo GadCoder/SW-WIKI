@@ -1,8 +1,25 @@
+import { useEffect, useState } from "react";
 import { Pagination, Row } from "react-bootstrap";
 import { BrowserView, MobileView } from "react-device-detect";
+import {getNumberOfPages} from "../../api/swapi";
 
-function PageBar({ numberOfPages, currentPage,  updatePage }) {
 
+function BottomBar({content, currentPage, updatePage, theme}) {
+
+  const [numberOfPages, setNumberOfPages] = useState(8)
+  
+  useEffect( () => {
+      let pageNumberToSet = true;
+      getNumberOfPages(content).then( (info) => {
+        if(pageNumberToSet){
+          setNumberOfPages(info)
+        }
+      })
+      return () => {
+          pageNumberToSet = false;
+      }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <Row>
@@ -13,6 +30,8 @@ function PageBar({ numberOfPages, currentPage,  updatePage }) {
               key={i}
               active={i+1 === currentPage}
               onClick={() => updatePage(i + 1)}
+              className={i+1 === currentPage? `pagination-item-${theme}` : null}
+              
             >
               {i + 1}{" "}
             </Pagination.Item>
@@ -29,4 +48,4 @@ function PageBar({ numberOfPages, currentPage,  updatePage }) {
   );
 }
 
-export default PageBar;
+export default BottomBar;

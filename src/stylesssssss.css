@@ -10,38 +10,20 @@
 }
 
 
-.main-container-sith{
-    background-color: #212529;
-}
-.main-container-jedi{
-    background-color: #FFFFFF;
-}
 /* Bars */
 
-/* TOP Bar*/
-
-.nav-link-sith{
-    color: white !important;
-    font-family: 'PT Sans Caption', sans-serif;    
-}
-
-.nav-link-sith:hover{
-    color: #ff2015 !important;
-
-}
-.nav-link-jedi{
+.nav-link{
     color: black;
     font-family: 'PT Sans Caption', sans-serif;    
 }
-.nav-link-jedi:hover{
-    color: #1B9AFA !important;
-  
-}
 
+.nav-link:hover{
+    color: #1B9AFA !important;
+}
+/* TOP Bar*/
 
 .page-top-bar{
     padding: 20px 30px;
-  
 }
 
 .page-top-bar-count{
@@ -53,17 +35,12 @@
     font-family: SWFont !important;
     text-decoration: none;
     font-size: 2.5em;
+    color: black;
     margin-right: 50px;
 }
-.page-tittle-jedi{
-    color: black !important
-}
 
-.page-tittle-sith{
-    color: white !important;   
-}
 .page-tittle:hover{
-    color: #FFE81F !important;
+    color: #FFE81F
 }
 
 .page-theme-switch{
@@ -74,18 +51,9 @@
 /* Bottom Bar */
 
 .page-bottom-bar{
-    margin-top: 30px;
+    margin-top: 20px;
     display: flex;
     justify-content: center;
-}
-
-.page-link{
-    color:  black;
-}
-.pagination-item-sith.active >span {
-    background-color: #ff2015 !important;
-    border-color: #ff2015 !important;
-
 }
 
 
@@ -93,12 +61,8 @@
 .card{
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     margin-top: 50px;
-    padding: 30px 0px;
-    background-color: #EFEFEF;
-    border-radius: 10px;
-    width: 85%;
+    padding: 25px 0px;
 }
-
 .card-tittle{
     text-align: center;
     font-family: 'Maven Pro', sans-serif;
@@ -111,7 +75,7 @@
     object-fit: contain;
 }
 .img-container{
-    width: 100px;
+    width: 250px;
     height: 350px;
 }
 
