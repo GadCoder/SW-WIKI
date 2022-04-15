@@ -6,7 +6,7 @@ function CardsContainer({contentList,contentType,}) {
   return (
     <Row>
       {contentList.map((data, id) => (
-        <Col md={3} key={id}>
+        <Col xs={12} sm={6} md={4} lg={3} key={id}>
           <Card infoName = {data.name} infoURL={data.url} contentType={contentType} searched={false}/>
         </Col>
       ))}
