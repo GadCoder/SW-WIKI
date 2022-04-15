@@ -14,16 +14,19 @@ function TopBar({theme, setTheme, searchButton, updateSearchTerm}) {
   const navBarTheme = theme === "jedi" ? "navbar-light bg-light" : "navbar-dark bg-dark"
   const [searchField, setSearchField] = useState("")
 
+  const correctInput = (input) => {
+    return input.split(" ").map(word =>(word.charAt(0).toUpperCase() + word.slice(1))).join(" ")
+  
+  }
   const handleSearchButton = () => {
     const searchStatus = searchField.length > 1 ? true : false
     if(searchStatus){
       searchButton(searchStatus);
-      updateSearchTerm(searchField)
+      updateSearchTerm(correctInput(searchField))
 
     }else {
       searchButton(false)
     }
-  
   }
 
   const handleThemeChange = () => {

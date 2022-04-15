@@ -1,12 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import { Container } from "react-bootstrap";
 import {isMobile} from 'react-device-detect';
 import { getListOfData } from "../../api/swapi";
 import TopBar from "../Bars/TopBar";
 import BottomBar from "../Bars/BottomBar";
 import CardsContainer from "../InfoCards/CardsContainer";
-import SearchCardsContainer from "../InfoCards/SearchCardsContainer";
 import LoadingPage from "./LoadingPage";
+
+const SearchCardsContainer = lazy(() => import("../InfoCards/SearchCardsContainer"));
 
 function MainPage({ content = "people" }) {
   const [listIndex, setListIndex] = useState(0);
@@ -55,12 +56,15 @@ function MainPage({ content = "people" }) {
       />
 
       {searchCards ? (
-        <SearchCardsContainer
+        <Suspense fallback={<LoadingPage/>}>
+          <SearchCardsContainer
           contentList={contentList}
           searchTerm={searchTerm}
           contentType={content}
+          theme={pageTheme}
           className="search-cards-container"
         />
+        </Suspense>
       ) : (
         <div>
           <CardsContainer contentList={getInfoListSplitted()} contentType={content} />

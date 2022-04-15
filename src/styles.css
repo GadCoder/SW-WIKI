@@ -143,6 +143,21 @@ body,
   height: 350px;
 }
 
+
+.failed-search{
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.failed-search-jedi{
+  color: black;
+
+}
+.failed-search-sith{
+  color: #ffe81f;
+}
+
 /* MobiLe */
 @media only screen and (max-width: 768px) {
   .page-tittle {
