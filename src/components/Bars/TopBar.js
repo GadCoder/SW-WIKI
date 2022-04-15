@@ -17,7 +17,6 @@ function TopBar({theme, setTheme, searchButton, updateSearchTerm}) {
   const handleSearchButton = () => {
     const searchStatus = searchField.length > 1 ? true : false
     if(searchStatus){
-      console.log(searchStatus)
       searchButton(searchStatus);
       updateSearchTerm(searchField)
 
@@ -25,8 +24,6 @@ function TopBar({theme, setTheme, searchButton, updateSearchTerm}) {
       searchButton(false)
     }
   
-    console.log(searchField)
-
   }
 
   const handleThemeChange = () => {

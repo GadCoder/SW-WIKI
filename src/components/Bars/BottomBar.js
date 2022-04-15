@@ -1,25 +1,24 @@
 import { useEffect, useState } from "react";
 import { Pagination, Row } from "react-bootstrap";
 import { BrowserView, MobileView } from "react-device-detect";
-import {getNumberOfPages} from "../../api/swapi";
 
 
-function BottomBar({content, currentPage, updatePage, theme}) {
+function BottomBar({numberOfElements, numberOfCards, currentPage, updatePage, theme}) {
 
   const [numberOfPages, setNumberOfPages] = useState(8)
   
   useEffect( () => {
       let pageNumberToSet = true;
-      getNumberOfPages(content).then( (info) => {
-        if(pageNumberToSet){
-          setNumberOfPages(info)
-        }
-      })
+      if(pageNumberToSet){
+        const pageNumber =  Math.ceil(numberOfElements/numberOfCards);
+        setNumberOfPages(pageNumber)
+      }
+   
       return () => {
           pageNumberToSet = false;
       }
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [numberOfElements])
 
   return (
     <Row>
@@ -29,7 +28,7 @@ function BottomBar({content, currentPage, updatePage, theme}) {
             <Pagination.Item
               key={i}
               active={i+1 === currentPage}
-              onClick={() => updatePage(i + 1)}
+              onClick={() => updatePage(i+1)}
               className={i+1 === currentPage? `pagination-item-${theme}` : null}
               
             >
@@ -40,8 +39,8 @@ function BottomBar({content, currentPage, updatePage, theme}) {
       </BrowserView>
       <MobileView>
         <Pagination size={"lg"} className="page-bottom-bar">
-          <Pagination.Prev onClick={() => currentPage - 1 < 1 ? null : updatePage(currentPage-1)} />
-          <Pagination.Next onClick={() => currentPage + 1 > numberOfPages ? null : updatePage(currentPage+1)} />
+          <Pagination.Prev onClick={() => currentPage - 1 < 1 ? updatePage(numberOfPages) : updatePage(currentPage-1)} />
+          <Pagination.Next onClick={() => currentPage + 1 > numberOfPages ? updatePage(1) : updatePage(currentPage+1)} />
         </Pagination>
       </MobileView>
     </Row>

@@ -1,11 +1,10 @@
-async function getDataAPI(content="people", page=1){
-    const url = `https://swapi.dev/api/${content}/?page=${page.toString()}`
+async function getDataAPI(url){
     const response = await fetch(url,
         {
             mode: "cors"
         })
     const data = await response.json()
-    return data.results
+    return data
 }
 
 
@@ -24,7 +23,7 @@ async function getNumberOfPages(content="people"){
 }
 
 async function getListOfData(content="people"){
-    const dataList = {}
+    const dataList = []
     const numberOfPages = await getNumberOfPages(content).then((info) => info)
 
     let pageNumber = 1
@@ -38,7 +37,10 @@ async function getListOfData(content="people"){
     while(pageNumber <= numberOfPages){
         pageNumber += 1;
         data.results.forEach((info) => {
-            dataList[info.name] = info.url 
+            const dataDict = {}
+            dataDict["name"] = info.name
+            dataDict["url"] = info.url
+            dataList.push(dataDict)
         })
         response = await fetch(`${urlBase}${pageNumber}`,
         {
