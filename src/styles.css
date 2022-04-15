@@ -114,9 +114,7 @@ body {
 }
 
 .card:hover {
-
-    box-shadow: rgb(182, 182, 182) 0px 3px 20px;
-    
+    box-shadow: rgb(182, 182, 182) 0px 3px 20px;  
 
 }
 .card-tittle{
@@ -152,5 +150,9 @@ body {
     .img-container{
         width: 200px;
         height: 280px;
+    }
+    .card{
+        width: 85%;
+        height: 380px !important;
     }
   }
