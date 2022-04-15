@@ -117,7 +117,7 @@ body,
   padding: 30px 0px;
   background-color: #efefef;
   border-radius: 10px;
-  width: 80%;
+  width: 85%;
   height: 460px !important;
 }
 
@@ -140,7 +140,6 @@ body,
   object-fit: contain;
 }
 .img-container {
-  width: 100px;
   height: 350px;
 }
 
