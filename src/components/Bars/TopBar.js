@@ -37,7 +37,7 @@ function TopBar({theme, setTheme, searchButton, updateSearchTerm}) {
       <Container fluid>
         <Navbar.Toggle aria-controls="responsive-navbar" />
         <Navbar.Brand>
-          <Link to="/" className={`page-tittle-${theme} page-tittle`}>
+          <Link to="/people" className={`page-tittle-${theme} page-tittle`}>
             SW-Wiki
           </Link>
         </Navbar.Brand>

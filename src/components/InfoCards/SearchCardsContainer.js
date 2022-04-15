@@ -1,15 +1,14 @@
 import { useEffect, useState } from "react";
-
 import { Row, Col } from "react-bootstrap";
 import Card from "./Card";
 
 function SearchCardsContainer({ contentList, searchTerm, contentType }) {
   const [searchFounds, setSearchFounds] = useState([]);
-  const [contentValues, setContentValues] = useState(contentList);
+
 
   useEffect(
     () => {
-      const namesFounded = contentValues.filter((value) => value.name.includes(searchTerm));
+      const namesFounded = contentList.filter((value) => value.name.includes(searchTerm));
       setSearchFounds(namesFounded);
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps

@@ -1,10 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MainPage from "./components/Pages/MainPage";
-import InfoPage from "./components/Pages/InfoPage";
+
 
 function App() {
   return ( 
-
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<MainPage content="people" key={"people"} />}>

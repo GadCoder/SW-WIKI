@@ -1,5 +1,5 @@
-import { css } from "@emotion/react";
-import { Container, Row, Col } from "react-bootstrap";
+
+import { Container} from "react-bootstrap";
 import { BeatLoader } from "react-spinners";
 
 function LoadingPage() {

@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
-import CardsContainer from "../InfoCards/CardsContainer";
-import BottomBar from "../Bars/BottomBar";
-import TopBar from "../Bars/TopBar";
-import { getListOfData } from "../../api/swapi";
-import SearchCardsContainer from "../InfoCards/SearchCardsContainer";
 import {isMobile} from 'react-device-detect';
+import { getListOfData } from "../../api/swapi";
+import TopBar from "../Bars/TopBar";
+import BottomBar from "../Bars/BottomBar";
+import CardsContainer from "../InfoCards/CardsContainer";
+import SearchCardsContainer from "../InfoCards/SearchCardsContainer";
 import LoadingPage from "./LoadingPage";
 
 function MainPage({ content = "people" }) {
@@ -16,14 +16,6 @@ function MainPage({ content = "people" }) {
   const [contentList, setContentList] = useState([]);
   const [numberOfCards, setNumberOfCards] = useState(12)
   const [loadingPage, setLoadingPage] = useState(true)
-
-
-  const searchButtonPressed = (buttonPressed) => {
-    setSearchCards(buttonPressed);
-  };
-  const updateSearchTerm = (term) => {
-    setSearchTerm(term);
-  };
 
   const updatePageIndex = (index) => {
     window.scrollTo(0,0)
@@ -57,8 +49,8 @@ function MainPage({ content = "people" }) {
       <TopBar
         theme={pageTheme}
         setTheme={setPageTheme}
-        searchButton={searchButtonPressed}
-        updateSearchTerm={updateSearchTerm}
+        searchButton={setSearchCards}
+        updateSearchTerm={setSearchTerm}
         class
       />
 

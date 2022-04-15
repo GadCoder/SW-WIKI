@@ -3,14 +3,15 @@ import { Container, Row, Col } from "react-bootstrap";
 import { getDataAPI } from "../../api/swapi";
 import ReactCardFlip from "react-card-flip";
 
-function Card({ infoName, infoURL, contentType }) 
+function Card({ infoName, infoURL, contentType }){  
 
   const [cardInfo, setCardInfo] = useState({});
+
   useEffect(() => {
     getDataAPI(infoURL).then((info) => {
       setCardInfo(info);
     });
-  }, []);
+  }, [infoURL]);
 
   const [isFlipped, setIsFlipped] = useState(false);
   const name = infoName;
