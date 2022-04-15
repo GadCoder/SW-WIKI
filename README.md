@@ -1,5 +1,3 @@
-# Getting Started with Create React App
-
 # SW WIKI
 
 Wikipedia de Star Wars hecha con  React y la api [SWAPI](https://swapi.dev/documentation)
