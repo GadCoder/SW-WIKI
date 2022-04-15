@@ -6,21 +6,18 @@ import TopBar from "../Bars/TopBar";
 import { getListOfData } from "../../api/swapi";
 import SearchCardsContainer from "../InfoCards/SearchCardsContainer";
 import {isMobile} from 'react-device-detect';
+import LoadingPage from "./LoadingPage";
 
 function MainPage({ content = "people" }) {
-  const [currentPage, setCurrentPage] = useState(1);
   const [listIndex, setListIndex] = useState(0);
   const [pageTheme, setPageTheme] = useState("sith");
   const [searchCards, setSearchCards] = useState(false);
   const [searchTerm, setSearchTerm] = useState(" ");
   const [contentList, setContentList] = useState([]);
   const [numberOfCards, setNumberOfCards] = useState(12)
+  const [loadingPage, setLoadingPage] = useState(true)
 
 
-  const updatePage = (pageNumber) => {
-    setCurrentPage(pageNumber);
-  };
-  
   const searchButtonPressed = (buttonPressed) => {
     setSearchCards(buttonPressed);
   };
@@ -29,6 +26,7 @@ function MainPage({ content = "people" }) {
   };
 
   const updatePageIndex = (index) => {
+    window.scrollTo(0,0)
     setListIndex((index-1)*numberOfCards)
   }
   const getInfoListSplitted = () => {
@@ -42,6 +40,7 @@ function MainPage({ content = "people" }) {
       if (infoToSet) {
         setNumberOfCards(isMobile ? 6 : numberOfCards )
         setContentList(info);
+        setLoadingPage(false)
       }
     });
     return () => { infoToSet = false;};
@@ -49,7 +48,8 @@ function MainPage({ content = "people" }) {
   }, []);
 
 
-  return (
+  return loadingPage ? <LoadingPage/>: 
+  (
     <Container
       fluid
       className={`main-container-${pageTheme === "jedi" ? "jedi" : "sith"}`}
@@ -59,6 +59,7 @@ function MainPage({ content = "people" }) {
         setTheme={setPageTheme}
         searchButton={searchButtonPressed}
         updateSearchTerm={updateSearchTerm}
+        class
       />
 
       {searchCards ? (
@@ -66,17 +67,18 @@ function MainPage({ content = "people" }) {
           contentList={contentList}
           searchTerm={searchTerm}
           contentType={content}
+          className="search-cards-container"
         />
       ) : (
         <div>
           <CardsContainer contentList={getInfoListSplitted()} contentType={content} />
-          <BottomBar
+          {!loadingPage ? (<BottomBar
             numberOfElements = {contentList.length}
             numberOfCards = {numberOfCards}
             currentPage={Math.round(listIndex/numberOfCards)+1}
             updatePage={updatePageIndex}
             theme={pageTheme}
-          />
+          />) : null}
         </div>
       )}
     </Container>

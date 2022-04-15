@@ -1,158 +1,167 @@
 /* Fonts */
 
-@import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;600;800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Caption&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;600;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans+Caption&display=swap");
 
 @font-face {
-    font-family: 'SWFont';
-    src: url("./fonts/Starjedi.ttf");
-    font-display: swap;
+  font-family: "SWFont";
+  src: url("./fonts/Starjedi.ttf");
+  font-display: swap;
+}
+html {
+  scroll-behavior: smooth;
+  min-width: 100%;
 }
 
 body {
-    padding: 0;
-    margin: 0;
-    }
-    
-    #root {
-    min-height: 100vh; 
-
-    }
-
-.main-container-sith{
-    background-color: #212529;
-    overflow: auto;
-    height:100vh;
+  padding: 0;
+  margin: 0;
 }
 
-.main-container-jedi{
-    background-color: #FFFFFF;
-    height:100vh;
+html,
+body,
+#root,
+.App {
+  min-height: 100vh;
+}
+.loading-spinner-container {
+  width: 100%;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  background-color: #212529;
+}
 
+.inner-spinner {
+  align-self: center;
+}
+.main-container-sith {
+  background-color: #212529;
+  min-height: 100vh;
+}
+
+.main-container-jedi {
+  background-color: #ffffff;
+  min-height: 100vh;
+}
+
+.search-cards-container {
+  height: 100%;
 }
 /* Bars */
 
 /* TOP Bar*/
 
-.nav-link-sith{
-    color: white !important;
-    font-family: 'PT Sans Caption', sans-serif;    
+.nav-link-sith {
+  color: white !important;
+  font-family: "PT Sans Caption", sans-serif;
 }
 
-.nav-link-sith:hover{
-    color: #ff2015 !important;
-
+.nav-link-sith:hover {
+  color: #ff2015 !important;
 }
-.nav-link-jedi{
-    color: black;
-    font-family: 'PT Sans Caption', sans-serif;    
+.nav-link-jedi {
+  color: black;
+  font-family: "PT Sans Caption", sans-serif;
 }
-.nav-link-jedi:hover{
-    color: #1B9AFA !important;
-  
+.nav-link-jedi:hover {
+  color: #1b9afa !important;
 }
 
-.page-top-bar{
-    padding: 20px 30px;
-  
+.page-top-bar {
+  padding: 20px 50px;
 }
 
-.page-top-bar-count{
-    margin-right: 50px;
-    font-family: 'Maven Pro', sans-serif;
+.page-tittle {
+  font-family: SWFont !important;
+  text-decoration: none;
+  font-size: 2.5em;
+  margin-right: 50px;
+}
+.page-tittle-jedi {
+  color: black !important;
 }
 
-.page-tittle{
-    font-family: SWFont !important;
-    text-decoration: none;
-    font-size: 2.5em;
-    margin-right: 50px;
+.page-tittle-sith {
+  color: white !important;
 }
-.page-tittle-jedi{
-    color: black !important
+.page-tittle:hover {
+  color: #ffe81f !important;
 }
 
-.page-tittle-sith{
-    color: white !important;   
-}
-.page-tittle:hover{
-    color: #FFE81F !important;
-}
-
-.page-theme-switch{
-    font-family: 'PT Sans Caption', sans-serif;
-    margin-left: 50px;
+.page-theme-switch {
+  font-family: "PT Sans Caption", sans-serif;
+  margin-left: 50px;
 }
 
 /* Bottom Bar */
 
-.page-bottom-bar{
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
+.page-bottom-bar {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
 }
 
-.page-link{
-    color:  black;
+.page-link {
+  color: black;
 }
-.pagination-item-sith.active >span {
-    background-color: #ff2015 !important;
-    border-color: #ff2015 !important;
-
+.pagination-item-sith.active > span {
+  background-color: #ff2015 !important;
+  border-color: #ff2015 !important;
 }
-
 
 /* Info Card */
-.card{
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    margin-top: 30px;
-    padding: 30px 0px;
-    background-color: #EFEFEF;
-    border-radius: 10px;
-    width: 80%;
-    height: 460px !important;
+.card {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin-top: 30px;
+  padding: 30px 0px;
+  background-color: #efefef;
+  border-radius: 10px;
+  width: 80%;
+  height: 460px !important;
 }
 
 .card:hover {
-    box-shadow: rgb(182, 182, 182) 0px 3px 20px;  
-
+  box-shadow: rgb(182, 182, 182) 0px 3px 20px;
 }
-.card-tittle{
-    text-align: center;
-    font-family: 'Maven Pro', sans-serif;
-    font-weight: 600;
-}
-
-.card-list-info{
-    font-size: 1.3em;
-    margin-top: 50px;
-}
-.img{
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-.img-container{
-    width: 100px;
-    height: 350px;
+.card-tittle {
+  text-align: center;
+  font-family: "Maven Pro", sans-serif;
+  font-weight: 600;
 }
 
+.card-list-info {
+  font-size: 1.3em;
+  margin-top: 50px;
+}
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.img-container {
+  width: 100px;
+  height: 350px;
+}
 
 /* MobiLe */
 @media only screen and (max-width: 768px) {
-    .page-tittle{
-        font-size: 1.5em;
-    }
-    .page-theme-switch{
-        font-family: 'PT Sans Caption', sans-serif;
-        margin: 0px;
-    }
-    .img-container{
-        width: 200px;
-        height: 280px;
-    }
-    .card{
-        width: 85%;
-        height: 380px !important;
-    }
+  .page-tittle {
+    font-size: 1.5em;
   }
+  .page-theme-switch {
+    font-family: "PT Sans Caption", sans-serif;
+    margin: 0px;
+  }
+  .img-container {
+    width: 200px;
+    height: 280px;
+  }
+  .card {
+    width: 85%;
+    height: 380px !important;
+  }
+  .page-top-bar {
+    padding: 20px 30px;
+  }
+}

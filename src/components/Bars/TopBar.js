@@ -34,10 +34,10 @@ function TopBar({theme, setTheme, searchButton, updateSearchTerm}) {
 
   return (
     <Navbar collapseOnSelect expand="lg" className={`page-top-bar ${navBarTheme}`}>
-      <Container>
+      <Container fluid>
         <Navbar.Toggle aria-controls="responsive-navbar" />
         <Navbar.Brand>
-          <Link to="/people" className={`page-tittle-${theme} page-tittle`}>
+          <Link to="/" className={`page-tittle-${theme} page-tittle`}>
             SW-Wiki
           </Link>
         </Navbar.Brand>

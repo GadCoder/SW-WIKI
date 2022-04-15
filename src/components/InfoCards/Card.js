@@ -28,7 +28,7 @@ function Card({ infoName, infoURL, contentType }) {
 
   return (
     <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
-      <Container className="card" onClick={() => setIsFlipped(!isFlipped)}>
+      <Container className="card"  onClick={() => setIsFlipped(!isFlipped)}>
         <Row>
           <h3 className="card-tittle" >
             {name}
