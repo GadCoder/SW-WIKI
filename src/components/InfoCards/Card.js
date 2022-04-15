@@ -3,8 +3,8 @@ import { Container, Row, Col } from "react-bootstrap";
 import { getDataAPI } from "../../api/swapi";
 import ReactCardFlip from "react-card-flip";
 
-function Card({ infoName, infoURL, contentType }) {
-  //const [name, height, mass, birth_year, homeworld, films] = info
+function Card({ infoName, infoURL, contentType }) 
+
   const [cardInfo, setCardInfo] = useState({});
   useEffect(() => {
     getDataAPI(infoURL).then((info) => {
@@ -16,19 +16,9 @@ function Card({ infoName, infoURL, contentType }) {
   const name = infoName;
   const img_path = `./images/${contentType}/${name}.webp`;
 
-  const getMoviesList = (movies) => {
-    const movies_arr = []
-    movies.forEach(movie => {
-      getDataAPI(movie).then(info => {
-        movies_arr.push(info.tittle)
-      })
-    })
-    return movies_arr.map(movie => <li>movie</li>)
-  }
-
   return (
     <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
-      <Container className="card"  onClick={() => setIsFlipped(!isFlipped)}>
+      <Container className="card" onClick={() => setIsFlipped(!isFlipped)}>
         <Row>
           <h3 className="card-tittle" >
             {name}
